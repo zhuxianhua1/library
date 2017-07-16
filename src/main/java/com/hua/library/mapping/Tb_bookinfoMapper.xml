@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hua.library.dao.Tb_bookinfoMapper" >
+  <resultMap id="BaseResultMap" type="com.hua.library.entity.Tb_bookinfo" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="barcode" property="barcode" jdbcType="VARCHAR" />
+    <result column="bookname" property="bookname" jdbcType="VARCHAR" />
+    <result column="typeid" property="typeid" jdbcType="INTEGER" />
+    <result column="author" property="author" jdbcType="VARCHAR" />
+    <result column="translator" property="translator" jdbcType="VARCHAR" />
+    <result column="ISBN" property="isbn" jdbcType="VARCHAR" />
+    <result column="price" property="price" jdbcType="REAL" />
+    <result column="page" property="page" jdbcType="INTEGER" />
+    <result column="bookcase" property="bookcase" jdbcType="INTEGER" />
+    <result column="inTime" property="intime" jdbcType="DATE" />
+    <result column="operator" property="operator" jdbcType="VARCHAR" />
+    <result column="del" property="del" jdbcType="BIT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, barcode, bookname, typeid, author, translator, ISBN, price, page, bookcase, inTime, 
+    operator, del
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from tb_bookinfo
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from tb_bookinfo
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.hua.library.entity.Tb_bookinfo" >
+    insert into tb_bookinfo (id, barcode, bookname, 
+      typeid, author, translator, 
+      ISBN, price, page, bookcase, 
+      inTime, operator, del)
+    values (#{id,jdbcType=INTEGER}, #{barcode,jdbcType=VARCHAR}, #{bookname,jdbcType=VARCHAR}, 
+      #{typeid,jdbcType=INTEGER}, #{author,jdbcType=VARCHAR}, #{translator,jdbcType=VARCHAR}, 
+      #{isbn,jdbcType=VARCHAR}, #{price,jdbcType=REAL}, #{page,jdbcType=INTEGER}, #{bookcase,jdbcType=INTEGER}, 
+      #{intime,jdbcType=DATE}, #{operator,jdbcType=VARCHAR}, #{del,jdbcType=BIT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.hua.library.entity.Tb_bookinfo" >
+    insert into tb_bookinfo
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="barcode != null" >
+        barcode,
+      </if>
+      <if test="bookname != null" >
+        bookname,
+      </if>
+      <if test="typeid != null" >
+        typeid,
+      </if>
+      <if test="author != null" >
+        author,
+      </if>
+      <if test="translator != null" >
+        translator,
+      </if>
+      <if test="isbn != null" >
+        ISBN,
+      </if>
+      <if test="price != null" >
+        price,
+      </if>
+      <if test="page != null" >
+        page,
+      </if>
+      <if test="bookcase != null" >
+        bookcase,
+      </if>
+      <if test="intime != null" >
+        inTime,
+      </if>
+      <if test="operator != null" >
+        operator,
+      </if>
+      <if test="del != null" >
+        del,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="barcode != null" >
+        #{barcode,jdbcType=VARCHAR},
+      </if>
+      <if test="bookname != null" >
+        #{bookname,jdbcType=VARCHAR},
+      </if>
+      <if test="typeid != null" >
+        #{typeid,jdbcType=INTEGER},
+      </if>
+      <if test="author != null" >
+        #{author,jdbcType=VARCHAR},
+      </if>
+      <if test="translator != null" >
+        #{translator,jdbcType=VARCHAR},
+      </if>
+      <if test="isbn != null" >
+        #{isbn,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null" >
+        #{price,jdbcType=REAL},
+      </if>
+      <if test="page != null" >
+        #{page,jdbcType=INTEGER},
+      </if>
+      <if test="bookcase != null" >
+        #{bookcase,jdbcType=INTEGER},
+      </if>
+      <if test="intime != null" >
+        #{intime,jdbcType=DATE},
+      </if>
+      <if test="operator != null" >
+        #{operator,jdbcType=VARCHAR},
+      </if>
+      <if test="del != null" >
+        #{del,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.hua.library.entity.Tb_bookinfo" >
+    update tb_bookinfo
+    <set >
+      <if test="barcode != null" >
+        barcode = #{barcode,jdbcType=VARCHAR},
+      </if>
+      <if test="bookname != null" >
+        bookname = #{bookname,jdbcType=VARCHAR},
+      </if>
+      <if test="typeid != null" >
+        typeid = #{typeid,jdbcType=INTEGER},
+      </if>
+      <if test="author != null" >
+        author = #{author,jdbcType=VARCHAR},
+      </if>
+      <if test="translator != null" >
+        translator = #{translator,jdbcType=VARCHAR},
+      </if>
+      <if test="isbn != null" >
+        ISBN = #{isbn,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null" >
+        price = #{price,jdbcType=REAL},
+      </if>
+      <if test="page != null" >
+        page = #{page,jdbcType=INTEGER},
+      </if>
+      <if test="bookcase != null" >
+        bookcase = #{bookcase,jdbcType=INTEGER},
+      </if>
+      <if test="intime != null" >
+        inTime = #{intime,jdbcType=DATE},
+      </if>
+      <if test="operator != null" >
+        operator = #{operator,jdbcType=VARCHAR},
+      </if>
+      <if test="del != null" >
+        del = #{del,jdbcType=BIT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.hua.library.entity.Tb_bookinfo" >
+    update tb_bookinfo
+    set barcode = #{barcode,jdbcType=VARCHAR},
+      bookname = #{bookname,jdbcType=VARCHAR},
+      typeid = #{typeid,jdbcType=INTEGER},
+      author = #{author,jdbcType=VARCHAR},
+      translator = #{translator,jdbcType=VARCHAR},
+      ISBN = #{isbn,jdbcType=VARCHAR},
+      price = #{price,jdbcType=REAL},
+      page = #{page,jdbcType=INTEGER},
+      bookcase = #{bookcase,jdbcType=INTEGER},
+      inTime = #{intime,jdbcType=DATE},
+      operator = #{operator,jdbcType=VARCHAR},
+      del = #{del,jdbcType=BIT}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

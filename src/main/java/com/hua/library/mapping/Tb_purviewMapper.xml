@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hua.library.dao.Tb_purviewMapper" >
+  <resultMap id="BaseResultMap" type="com.hua.library.entity.Tb_purview" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="sysset" property="sysset" jdbcType="BIT" />
+    <result column="readerset" property="readerset" jdbcType="BIT" />
+    <result column="bookset" property="bookset" jdbcType="BIT" />
+    <result column="borrowback" property="borrowback" jdbcType="BIT" />
+    <result column="sysquery" property="sysquery" jdbcType="BIT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, sysset, readerset, bookset, borrowback, sysquery
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from tb_purview
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from tb_purview
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.hua.library.entity.Tb_purview" >
+    insert into tb_purview (id, sysset, readerset, 
+      bookset, borrowback, sysquery)
+    values (#{id,jdbcType=INTEGER}, #{sysset,jdbcType=BIT}, #{readerset,jdbcType=BIT}, 
+      #{bookset,jdbcType=BIT}, #{borrowback,jdbcType=BIT}, #{sysquery,jdbcType=BIT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.hua.library.entity.Tb_purview" >
+    insert into tb_purview
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="sysset != null" >
+        sysset,
+      </if>
+      <if test="readerset != null" >
+        readerset,
+      </if>
+      <if test="bookset != null" >
+        bookset,
+      </if>
+      <if test="borrowback != null" >
+        borrowback,
+      </if>
+      <if test="sysquery != null" >
+        sysquery,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="sysset != null" >
+        #{sysset,jdbcType=BIT},
+      </if>
+      <if test="readerset != null" >
+        #{readerset,jdbcType=BIT},
+      </if>
+      <if test="bookset != null" >
+        #{bookset,jdbcType=BIT},
+      </if>
+      <if test="borrowback != null" >
+        #{borrowback,jdbcType=BIT},
+      </if>
+      <if test="sysquery != null" >
+        #{sysquery,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.hua.library.entity.Tb_purview" >
+    update tb_purview
+    <set >
+      <if test="sysset != null" >
+        sysset = #{sysset,jdbcType=BIT},
+      </if>
+      <if test="readerset != null" >
+        readerset = #{readerset,jdbcType=BIT},
+      </if>
+      <if test="bookset != null" >
+        bookset = #{bookset,jdbcType=BIT},
+      </if>
+      <if test="borrowback != null" >
+        borrowback = #{borrowback,jdbcType=BIT},
+      </if>
+      <if test="sysquery != null" >
+        sysquery = #{sysquery,jdbcType=BIT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.hua.library.entity.Tb_purview" >
+    update tb_purview
+    set sysset = #{sysset,jdbcType=BIT},
+      readerset = #{readerset,jdbcType=BIT},
+      bookset = #{bookset,jdbcType=BIT},
+      borrowback = #{borrowback,jdbcType=BIT},
+      sysquery = #{sysquery,jdbcType=BIT}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
