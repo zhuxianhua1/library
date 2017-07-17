@@ -35,7 +35,7 @@ public class FilterLogin implements Filter {
 				 || a.contains(".jpg")
 				 ||request.getRequestURI().indexOf("login.do")!=-1 
 				 || request.getRequestURI().indexOf("login.jsp")!=-1 
-				 || (request.getRequestURI().indexOf("index.do")!=-1 && is)
+				 || (request.getRequestURI().indexOf("main.do")!=-1 && is)
 				 || session.getAttribute("name")!=null){
 	            //如果发现是css或者js文件，直接放行
 	               chain.doFilter(request, response);

@@ -18,7 +18,7 @@
     		<div class="login">
     			<p>图书管理</p>
     			<div class="top">
-    				<form action="index.do" method="post" id="loginForm">
+    				<form action="main.do" method="post" id="loginForm">
 					  <input type="text"  class="form-control"  placeholder="用户名" name="name" id="name" required>
 					  <input type="text"  class="form-control" placeholder="密码" name="password" id="password" required>
 					  <button type="submit" class="btn btn-info" >登录</button>

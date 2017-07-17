@@ -17,7 +17,7 @@ public class LibraryController {
 	@Autowired
 	private Tb_managerMapper managerMapper;
 	private static final String LOGIN = "login";
-	private static final String USERINDEX = "index";
+	private static final String MAIN = "main";
 	private static Logger LOGGER = Logger.getLogger(LibraryService.class);
 	
 	@RequestMapping(value="/login.do")
@@ -26,7 +26,7 @@ public class LibraryController {
 		return LOGIN;
 	}
 	
-	@RequestMapping(value="/index.do",method=RequestMethod.POST)
+	@RequestMapping(value="/main.do",method=RequestMethod.POST)
 	public String showUser(String name,String password, HttpServletRequest request){
 		Tb_manager obj = new Tb_manager();
 		obj.setName(name);
@@ -46,7 +46,7 @@ public class LibraryController {
 			LOGGER.info("getLogin() password is Correct");
 			LOGGER.info("密码正确");
 		}
-		return USERINDEX;
+		return MAIN;
 	}
 	
 	

@@ -4,10 +4,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>图书馆管理系统</title>
 </head>
 <body>
-<form action="index.do" method="post">
+<form action="main.do" method="post">
 	姓名<input type="text" id="user" name="user"/>
 	<input type="submit" value="tijiao" name="user"/>
 </form>
