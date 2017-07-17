@@ -27,19 +27,19 @@ public class LibraryController {
 	}
 	
 	@RequestMapping(value="/index.do",method=RequestMethod.POST)
-	public String showUser(String name,String pwd, HttpServletRequest request){
+	public String showUser(String name,String password, HttpServletRequest request){
 		Tb_manager obj = new Tb_manager();
 		obj.setName(name);
 		Tb_manager tb_manager = managerMapper.selectByPrimaryKey(obj);
 		if(tb_manager==null || tb_manager.equals(null)){
 			LOGGER.error("用户名不正确");
-			request.setAttribute("errorName","用户名不正确");
+			request.setAttribute("errorMsg","用户名不正确");
 			return LOGIN;
 		}
-		if(!pwd.equals(tb_manager.getPwd())){
+		if(!password.equals(tb_manager.getPwd())){
 			LOGGER.info("getLogin() pwd is Incorrect"); 
 			LOGGER.error("密码不正确");
-			request.setAttribute("errorPassword","密码不正确");
+			request.setAttribute("errorMsg","密码不正确");
 			return LOGIN;
 			
 		}else{

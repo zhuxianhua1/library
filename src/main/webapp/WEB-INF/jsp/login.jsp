@@ -5,24 +5,27 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <link rel="stylesheet" type="text/css" href="CSS/bootstrap.min.css">
-        <link rel="stylesheet" type="text/css" href="CSS/login.css">
+        <link href="CSS/bootstrap.min.css" rel="stylesheet">
+        <link href="CSS/login.css" rel="stylesheet">
         <script type="text/javascript" src="JS/jquery-1.9.1.min.js"></script>
+        <script type="text/javascript" src="JS/jquery.validate.min.js"></script>
+        <script type="text/javascript" src="JS/messages_zh.min.js"></script>
         <script type="text/javascript" src="JS/bootstrap.min.js"></script>
+        <script type="text/javascript" src="JS/login.js"></script>
     </head>
     <body>
     	<div class="container">
     		<div class="login">
     			<p>图书管理</p>
     			<div class="top">
-    				<form action="#" method="post">
-					  <input type="text"  class="form-control"  placeholder="用户名">
-					  <input type="text"  class="form-control" placeholder="密码">
-					  <button type="submit" class="btn btn-info">登录</button>
+    				<form action="index.do" method="post" id="loginForm">
+					  <input type="text"  class="form-control"  placeholder="用户名" name="name" id="name" required>
+					  <input type="text"  class="form-control" placeholder="密码" name="password" id="password" required>
+					  <button type="submit" class="btn btn-info" >登录</button>
 
 	    			</form>
     			</div>
-    			<span>${errorMsg }</span>
+    			<span id="errorMsg">${errorMsg }</span>
     		</div>
     	</div>
     </body>
