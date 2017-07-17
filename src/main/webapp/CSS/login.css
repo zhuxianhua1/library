@@ -1,0 +1,55 @@
+/*
+* @Author: shu
+* @Date:   2017-07-17 09:32:47
+* @Last Modified by:   shu
+* @Last Modified time: 2017-07-17 14:26:06
+*/
+body{
+	background-color: #63B8FF;
+}
+.container{
+	width: 1226px;
+	margin: 0 auto;
+}
+
+.login{
+
+	width: 250px;
+	height: 300px;
+	background-color: #fff;
+	margin: 200px auto auto;
+	border-radius: 5px;
+	box-shadow:2px 2px 2px #5E5E5E;
+	position: relative;;
+}
+.container p{
+	position: absolute;
+	top: 20px;
+	left: 20px;
+	width: 200px;
+	height: 25px;
+	text-align: center;
+	color: #63B8FF;
+	font-size: 25px;
+	font-weight: bold;
+}
+.container .top{
+	position: absolute;
+	top: 45px;
+	left: 25px;
+}
+.container .top input,button{
+	width: 200px;
+	height: 40px;
+	margin-top: 20px;
+}
+.container .login span{
+	color: red;
+	width: 200px;
+	height: 40px;
+	font-size: 12px;
+	position: absolute;
+	bottom: 20px;
+	left: 25px;
+	text-align: center;
+}
