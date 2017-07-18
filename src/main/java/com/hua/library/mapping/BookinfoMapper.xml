@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hua.library.dao.BookInfoDao" >
+  <resultMap id="BaseResultMap" type="com.hua.library.entity.BookCorc" >
+    <result column="barcode" property="barcode" jdbcType="VARCHAR" />
+    <result column="bookname" property="bookname" jdbcType="VARCHAR" />
+    <result column="typename" property="typename" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="pubname" property="pubname" jdbcType="VARCHAR" />
+    <result column="price" property="price" jdbcType="REAL" />
+    <result column="author" property="author" jdbcType="INTEGER" />
+  </resultMap>
+
+  <select id="selectBookInfo" resultMap="BaseResultMap" parameterType="com.hua.library.entity.BookCorc" >
+    SELECT a.barcode,a.bookname,c.typename,d.name,e.pubname,a.author,a.price,COUNT(f.bookid) FROM tb_bookinfo a 
+    LEFT JOIN tb_bookinfo b on a.id = b.id 
+    LEFT JOIN tb_booktype c on c.id = a.typeid 
+    LEFT JOIN tb_bookcase d on a.bookcase = d.id 
+    LEFT JOIN tb_publishing e on a.ISBN = e.ISBN 
+    LEFT JOIN tb_borrow f on a.id = f.bookid GROUP BY f.bookid desc;  
+  </select>
+</mapper>

@@ -33,6 +33,8 @@ public class FilterLogin implements Filter {
 				 || a.contains(".js") 
 				 || a.contains(".png")
 				 || a.contains(".jpg")
+				 || a.contains(".GIF")
+				 || a.contains(".gif")
 				 ||request.getRequestURI().indexOf("login.do")!=-1 
 				 || request.getRequestURI().indexOf("login.jsp")!=-1 
 				 || (request.getRequestURI().indexOf("main.do")!=-1 && is)

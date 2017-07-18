@@ -7,8 +7,10 @@ import javax.xml.ws.WebServiceClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.hua.library.dao.BookInfoDao;
 import com.hua.library.dao.Tb_bookcaseMapper;
 import com.hua.library.dao.Tb_managerMapper;
+import com.hua.library.entity.BookCorc;
 import com.hua.library.entity.Tb_manager;
 import com.hua.library.service.LibraryService;
 
@@ -19,6 +21,8 @@ public class LirbraryServiceImpl implements LibraryService {
 	private Tb_bookcaseMapper bookcaseMapper;
 	@Autowired
 	private Tb_managerMapper managerMapper;
+	@Autowired
+	private BookInfoDao bookinfodao;
 	
 	@Override
 	public String obtionGetname(Integer id) {
@@ -30,6 +34,12 @@ public class LirbraryServiceImpl implements LibraryService {
 	public Tb_manager getUserPaw(Tb_manager manager) {
 		Tb_manager list = managerMapper.selectByPrimaryKey(manager);
 		
+		return list;
+	}
+
+	@Override
+	public List<BookCorc> getBookinfo(BookCorc bookcorc) {
+		List<BookCorc> list = bookinfodao.selectBookInfo(bookcorc);
 		return list;
 	}
 

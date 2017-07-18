@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>\
+<%@   page   import= "com.hua.library.controller.* "%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
 <head>
@@ -63,7 +65,13 @@
     </table>
     </td>
   </tr>
-</table>
-<%-- <%@ include file="copyright.jsp"%> --%>
+</table> <%@ include file="copyright.jsp"%>
+
+
+ <c:forEach items="${listbookinfo}" varStatus="i" var="item" >     
+                <h2>${item.barcode}</h2>   
+            </td>  
+        </tr>  
+  </c:forEach>
 </body>
 </html>
