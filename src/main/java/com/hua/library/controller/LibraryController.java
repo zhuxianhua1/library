@@ -22,7 +22,7 @@ public class LibraryController {
 	@Autowired
 	private Tb_managerMapper managerMapper;
 	@Autowired
-	private BookInfoDao bookinfodao;
+	private LibraryService libraryService;
 	private static final String LOGIN = "login";
 	private static final String MAIN = "main";
 	private static Logger LOGGER = Logger.getLogger(LibraryService.class);
@@ -38,14 +38,7 @@ public class LibraryController {
 		Tb_manager obj = new Tb_manager();
 		obj.setName(name);
 		Tb_manager tb_manager = managerMapper.selectByPrimaryKey(obj);
-		BookCorc objs = new BookCorc();
-		List<BookCorc> list = bookinfodao.selectBookInfo(objs);
-			for (BookCorc bookCorc : list) {
-				System.out.println(bookCorc.toString());
-			}
-			
-			request.setAttribute("listbookinfo",list);
-			System.out.println(list.get(0).getBarcode());
+		
 		
 		if(tb_manager==null || tb_manager.equals(null)){
 			LOGGER.error("用户名不正确");
@@ -62,9 +55,13 @@ public class LibraryController {
 			LOGGER.info("getLogin() password is Correct");
 			LOGGER.info("密码正确");
 		}
-//		BookCorc objs = new BookCorc();
-//		List<BookCorc> list = lirbraryService.getBookinfo(objs);
-		
+		BookCorc objs = new BookCorc();
+		List<BookCorc> list = libraryService.getBookinfo(objs);
+		for (BookCorc bookCorc : list) {
+			System.out.println(bookCorc.toString());
+		}
+		request.setAttribute("listbookinfo",list);
+		System.out.println(list.get(0).getBarcode());
 		return MAIN;
 	
 	}

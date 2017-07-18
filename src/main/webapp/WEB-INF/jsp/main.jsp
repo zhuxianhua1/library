@@ -39,17 +39,21 @@
 					<td>定价(元)</td>
 				    <td>借阅次数</td>
                   </tr>
-                  <tr>
-                    <td height="25" align="center">1</td>
-					<td style="padding:5px;">&nbsp;2</td>
-					<td style="padding:5px;">3</td>
-					<td style="padding:5px;">4</td>
-					<td align="center">&nbsp;5</td>
-					<td align="center">&nbsp;6</td>
-					<td width="11%" align="center">7</td>
-					<td width="8%" align="center">8</td>
-				    <td width="8%" align="center">9</td>
-                  </tr>
+                   <c:forEach items="${listbookinfo}" varStatus="i" var="item" >     
+				          <tr>
+		                    <td height="25" align="center">${item.barcode }</td>
+							<td style="padding:5px;">&nbsp;${item.barcode }</td>
+							<td style="padding:5px;">${item.bookname }</td>
+							<td style="padding:5px;">${item.typename }</td>
+							<td align="center">&nbsp;${item.name }</td>
+							<td align="center">&nbsp;${item.pubname }</td>
+							<td width="11%" align="center">${item.author }</td>
+							<td width="8%" align="center">${item.price }</td>
+						    <td width="8%" align="center">${item.barcode }</td>
+		                  </tr>
+				           
+				  </c:forEach>
+                  
                 </table>
                   </td>
                 <td width="2%" rowspan="2">&nbsp;</td>
@@ -68,10 +72,6 @@
 </table> <%@ include file="copyright.jsp"%>
 
 
- <c:forEach items="${listbookinfo}" varStatus="i" var="item" >     
-                <h2>${item.barcode}</h2>   
-            </td>  
-        </tr>  
-  </c:forEach>
+
 </body>
 </html>
